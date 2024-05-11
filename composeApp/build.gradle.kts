@@ -48,7 +48,7 @@ kotlin {
             implementation(libs.kamel)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
-            
+            implementation(libs.ktor.logging)
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
@@ -61,6 +61,10 @@ kotlin {
             implementation(libs.koin.annotation)
             //implementation(libs.sql.delight)
             implementation(libs.sql.delight.coroutines)
+            implementation(libs.lifecycle.viewmodel.compose)
+            implementation(libs.supabase.ktx)
+            implementation(libs.supabase.compose.auth.ui)
+            implementation(libs.supabase.compose.auth)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
