@@ -54,7 +54,7 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.voyager.navigator)
             implementation(libs.voyager.tabNavigator)
-            implementation(libs.moko.mvvm.core)
+            implementation(libs.moko.core)
             implementation(libs.moko.mvvm.compose)
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
@@ -65,6 +65,17 @@ kotlin {
             implementation(libs.supabase.ktx)
             implementation(libs.supabase.compose.auth.ui)
             implementation(libs.supabase.compose.auth)
+            implementation(libs.voyager.navigator)
+            implementation(libs.rinku.core)
+            implementation(libs.rinku.compose.ext)
+            implementation(libs.bundles.koin.impl)
+            implementation(projects.platform)
+            implementation(projects.designsystem)
+            implementation(projects.data)
+            implementation(projects.domain)
+
+            implementation(project.dependencies.platform(libs.koin.bom))
+            implementation(libs.bundles.koin.impl)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
