@@ -1,13 +1,14 @@
+@file:Suppress("UnstableApiUsage")
 import org.jetbrains.compose.ExperimentalComposeLibrary
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
 
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsCompose)
+    id("com.android.application")
+    alias(libs.plugins.kover)
+    alias(libs.plugins.ktlint)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.sqlDelight)
-    alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.buildkonfig.plugin)
 }
 
 kotlin {
@@ -18,7 +19,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -29,9 +30,9 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
-        
+
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
@@ -61,7 +62,6 @@ kotlin {
             implementation(libs.koin.annotation)
             //implementation(libs.sql.delight)
             implementation(libs.sql.delight.coroutines)
-            implementation(libs.lifecycle.viewmodel.compose)
             implementation(libs.supabase.ktx)
             implementation(libs.supabase.compose.auth.ui)
             implementation(libs.supabase.compose.auth)
@@ -113,7 +113,7 @@ android {
         compose = true
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
     dependencies {
